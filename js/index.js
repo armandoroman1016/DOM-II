@@ -8,8 +8,10 @@ const headerImg = document.querySelector('.intro img')
 const letsGoHead = document.querySelector('.disappear')
 const letsGoText = document.querySelector('.text-content p')
 const destinationHeadings = Array.from(document.querySelectorAll('.destination h4'))
+const midImages = Array.from(document.querySelectorAll('.mid-images'))
+let navLinks = Array.from(document.querySelectorAll('.nav a'))
 
-console.log(destinationHeadings)
+console.log(navLinks)
 
 //variables
 const colors = ['#B0C4DE', '#778899', '#87CEFA' , '#20B2AA', '#FFA07A', '#FFB6C1', '#90EE90', '#FAFAD2', '#E0FFFF', '#F08080', '#FFF0F5']
@@ -30,9 +32,17 @@ header.addEventListener('click', function(event){
     }, 250)
 })
 
+//no text to type
+navLinks.forEach(link => {
+    link.addEventListener('click', function(event){
+        event.preventDefault();
+        event.target.style.fontWeight = 700;
+    })
+})
+
 //make image resize:
 headerImg.addEventListener('dblclick', function(event){
-  event.target.style.width = `${Math.floor(Math.random() * 101)}%`
+  event.target.style.width = `${Math.floor(Math.random() * 101 * 2)}%`
 })
 
 //resize go header text:
@@ -56,7 +66,15 @@ letsGoText.addEventListener('mouseover', function(event){
         event.target.textContent = 'Adventure webdesign pretty design design, excursion cute WordPress blogger design webdesign adventure. Pretty simple traveling fun WordPress wanderlust darn simple organized.'
         event.target.style.fontWeight = 400
         event.target.style.fontSize = '1.6rem'
-    }, 3000)
+    }, 2000)
+})
+
+//mid section images 
+midImages.forEach((image) => {
+    image.addEventListener('dragstart', function(event){
+        event.preventDefault()
+        alert('You Cant Drag This')
+    })
 })
 
 // sign up buttons
@@ -69,10 +87,21 @@ buttons.forEach((button) => {
 })
 
 
+
+
 //destination headings
 destinationHeadings.forEach((heading) => {
-    heading.addEventListener('select', function(event){
-        const message = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd)
-        event.target.textContent = 'hello'
+    heading.addEventListener('mouseover', function(event){
+        event.target.style.fontWeight = 1000
+
+    setTimeout(function(){
+        event.target.style.fontWeight = ''  
+    }, 1500)
     })
 })
+
+
+//load message
+window.addEventListener('load', (event) => {
+    alert('Welcome to the Fun Bus');
+});

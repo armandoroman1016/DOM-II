@@ -12,7 +12,7 @@ const midImages = Array.from(document.querySelectorAll('.mid-images'))
 let navLinks = Array.from(document.querySelectorAll('.nav a'))
 const navContainer = document.querySelector('.nav-container')
 
-console.log(navLinks)
+
 
 //variables
 const colors = ['#B0C4DE', '#778899', '#87CEFA' , '#20B2AA', '#FFA07A', '#FFB6C1', '#90EE90', '#FAFAD2', '#E0FFFF', '#F08080', '#FFF0F5']
